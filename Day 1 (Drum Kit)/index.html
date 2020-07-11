@@ -88,8 +88,8 @@
         }
 
         function release(event){
-            var ele = document.querySelector(`key[data-key='${event.keyCode}']`);
-            if(!ele){
+            var ele = document.querySelector(`div[data-key='${event.keyCode}']`);
+            if(ele){
                 ele.classList.remove("play");
             }
         }
