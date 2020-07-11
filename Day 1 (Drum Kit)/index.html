@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <title>Drum Kit</title>
+        <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body onkeypress="hitKey(event)" onkeyup="release(event)">
+        <div class="container" >
+            <div class="row row-content">
+                <div class="col-md-8 offset-md-2 align-self-center button-row">
+                    <div data-key="65" class="key text-center">
+                        <span>A</span>
+                        <div>Clap</div>
+                    </div>
+                    <div data-key="83" class="key text-center">
+                        <span>S</span>
+                        <div>Boom</div>
+                    </div>
+                    <div data-key="68" class="key text-center">
+                        <span>D</span>
+                        <div>hihat</div>
+                    </div>
+                    <div data-key="70" class="key text-center">
+                        <span>F</span>
+                        <div>kick</div>
+                    </div>
+                    <div data-key="71" class="key text-center">
+                        <span>G</span>
+                        <div>Ride</div>
+                    </div>
+                    <div data-key="72" class="key text-center">
+                        <span>H</span>
+                        <div>OpenHat</div>
+                    </div>
+                    <div data-key="74" class="key text-center">
+                        <span>J</span>
+                        <div>Tink</div>
+                    </div>
+                    <div data-key="75" class="key text-center">
+                        <span>K</span>
+                        <div>Snare</div>
+                    </div>
+                    <div data-key="76" class="key text-center">
+                        <span>L</span>
+                        <div>Tom</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <audio data-key="83">
+            <source src="./Sounds/boom.wav" type="audio/wav">
+        </audio>
+        <audio data-key="65">
+            <source src="./Sounds/clap.wav" type="audio/wav">
+        </audio>
+        <audio data-key="68">
+            <source src="./Sounds/hihat.wav" type="audio/wav">
+        </audio>
+        <audio data-key="70">
+            <source src="./Sounds/kick.wav" type="audio/wav">
+        </audio>
+        <audio data-key="72">
+            <source src="./Sounds/openhat.wav" type="audio/wav">
+        </audio>
+        <audio data-key="71">
+            <source src="./Sounds/ride.wav" type="audio/wav">
+        </audio>
+        <audio data-key="75">
+            <source src="./Sounds/snare.wav" type="audio/wav">
+        </audio>
+        <audio data-key="74">
+            <source src="./Sounds/tink.wav" type="audio/wav">
+        </audio>
+        <audio data-key="76">
+            <source src="./Sounds/tom.wav" type="audio/wav">
+        </audio>
+    </body>
+    <script>
+
+        function hitKey(event){
+            var ele = document.querySelectorAll('[data-key="'+event.keyCode+'"]');
+            if(ele[0] != undefined && ele[1]!=undefined){
+                ele[0].classList.add("play");
+                ele[1].pause();
+                ele[1].currentTime = 0;
+                ele[1].play();
+            }
+        }
+
+        function release(event){
+            var ele = document.querySelectorAll('[data-key="'+event.keyCode+'"]');
+            if(ele!=undefined && ele[1]!=undefined){
+                ele[0].classList.remove("play");
+            }
+        }
+    </script>
+</html>

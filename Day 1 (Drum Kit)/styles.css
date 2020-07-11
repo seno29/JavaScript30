@@ -1,0 +1,38 @@
+body{
+    background-image: url('drums.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.row-content{
+    height: 100%;
+}
+
+.button-row{
+    padding: 50px;
+    display: flex;
+}
+
+.key{
+    margin: 3px;
+    height:80px;
+    padding: 2px;
+    flex: 1;
+    border: 2px solid white;
+    border-radius: 5px;
+    color:white;
+    transition: all 0.07s;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.play{
+    border: 2px solid orange;
+    box-shadow: 1px 2px 15px rgb(230, 170, 61);
+    transform: scale(1.1);
+}
+
+span{
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
