@@ -79,19 +79,18 @@
     <script>
 
         function hitKey(event){
-            var ele = document.querySelectorAll('[data-key="'+event.keyCode+'"]');
+            var ele = document.querySelectorAll(`[data-key='${event.keyCode}']`);
             if(ele[0] != undefined && ele[1]!=undefined){
                 ele[0].classList.add("play");
-                ele[1].pause();
                 ele[1].currentTime = 0;
                 ele[1].play();
             }
         }
 
         function release(event){
-            var ele = document.querySelectorAll('[data-key="'+event.keyCode+'"]');
-            if(ele!=undefined && ele[1]!=undefined){
-                ele[0].classList.remove("play");
+            var ele = document.querySelector(`key[data-key='${event.keyCode}']`);
+            if(!ele){
+                ele.classList.remove("play");
             }
         }
     </script>
