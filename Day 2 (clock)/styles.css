@@ -1,0 +1,64 @@
+body{
+    background-image: url('background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.title{
+    color:white;
+    font-size: 80px;
+    margin-top:20%;
+    padding:10px;
+    font-family: 'Grenze Gotisch', cursive;
+}
+
+.clock{
+    width: 500px;
+    height: 500px;
+    border: 5px solid white;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.2); 
+    margin: 50px auto;
+    position: relative; 
+    padding:2rem;  
+}
+
+.clock-circle{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-3px); 
+    
+}
+
+.hand{
+    width: 50%;
+    /* height: 6px; */
+    background: black;
+    position: absolute;
+    top: 50%;
+    transform-origin: top right;
+}
+
+.hour-hand{
+    width: 40%; 
+    left: 45px;
+    height: 0px;
+    border: 3px solid black;
+}
+
+.minute-hand{
+    height: 0px;
+    border: 2px solid black;
+    width: 45%;
+    left: 22px;
+}
+
+.second-hand{
+    height: 0px;
+    border: 1px solid black;
+    width: 50%;
+}

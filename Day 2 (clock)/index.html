@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>
+            CSS+JS Clock
+        </title>
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="clock">
+            <div class="clock-circle">
+                <div id="hour" class="hand hour-hand"></div>
+                <div id="minute" class="hand minute-hand"></div>
+                <div id="sec" class="hand second-hand"></div>
+            </div>
+        </div>
+        <script>
+            var sec = document.getElementById('sec');
+            var hour = document.getElementById('hour');
+            var minute = document.getElementById('minute');
+
+            function updateSecond(){
+                var d = new Date();
+                var currSec = d.getSeconds();
+                console.log(currSec);
+                var deg = currSec * 6 + 90;
+                sec.style.transform = 'rotate('+deg+'deg)';
+            }
+
+            function updateHour(){
+                var d = new Date();
+                var currHour = d.getHours();
+                var currMin = d.getMinutes();
+                var currSec = d.getSeconds();
+                var totalSec = (currHour>=12) ? currSec + currMin*60 + (currHour-12)*3600 :currSec + currMin*60 + currHour*3600;
+                console.log(currHour);
+                var deg = totalSec*(1/120) + 90;
+                hour.style.transform = 'rotate('+deg+'deg)';
+            }
+
+            function updateMinute(){
+                var d = new Date();
+                var currMin = d.getMinutes();
+                var currSec = d.getSeconds();
+                var totalSec =  currSec + currMin*60 ;
+                var deg = totalSec*0.1 + 90;
+                minute.style.transform = 'rotate('+deg+'deg)';
+            }
+            
+            setInterval(updateHour,1000);
+            setInterval(updateMinute,1000);
+            setInterval(updateSecond,1000);
+        </script>
+    </body>
+</html>
