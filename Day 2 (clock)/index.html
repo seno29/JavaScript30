@@ -15,18 +15,22 @@
                 <div id="minute" class="hand minute-hand"></div>
                 <div id="sec" class="hand second-hand"></div>
             </div>
+            <audio id="aud">
+                <source src="tink.wav" type="audio/wav">
+            </audio>
         </div>
         <script>
             var sec = document.getElementById('sec');
             var hour = document.getElementById('hour');
             var minute = document.getElementById('minute');
+            var audio = document.getElementById('aud');
 
             function updateSecond(){
                 var d = new Date();
                 var currSec = d.getSeconds();
-                console.log(currSec);
                 var deg = currSec * 6 + 90;
                 sec.style.transform = 'rotate('+deg+'deg)';
+               //audio.play();
             }
 
             function updateHour(){
@@ -35,7 +39,6 @@
                 var currMin = d.getMinutes();
                 var currSec = d.getSeconds();
                 var totalSec = (currHour>=12) ? currSec + currMin*60 + (currHour-12)*3600 :currSec + currMin*60 + currHour*3600;
-                console.log(currHour);
                 var deg = totalSec*(1/120) + 90;
                 hour.style.transform = 'rotate('+deg+'deg)';
             }
